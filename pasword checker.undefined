@@ -1,0 +1,26 @@
+bool strongPasswordCheckerII(string password){
+if(password.size()<8)
+return false;
+string specialArr ="!@#$%^&*()-+";
+bool lower=false, upper=false, digit=false, special= false;
+for(char s=password){
+if('a'<=s && s<='z')
+lower= true;
+if('A'<=s && s<='Z')
+upper= true;
+if('0'<=s && s<='9')
+digit= true;
+for(char d=specialArr){
+if(s==d)
+special =true;
+}
+}
+if(!lower || !upper || !digit || !special)
+return false;
+
+for(int i=1;i<password.size();i++){
+if(password[i]==passwprd[i-1])
+return false;
+}
+return true;
+}
